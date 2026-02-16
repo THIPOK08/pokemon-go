@@ -1,0 +1,1 @@
+postgresql://pokemon_db_xmeq_user:pf8vvtD6Sy9F3Hgg1YyD6BLvTjbS41OA@dpg-d697hgruibrs739bsfbg-a.oregon-postgres.render.com/pokemon_db_xmeq
