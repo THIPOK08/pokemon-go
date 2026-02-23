@@ -3,7 +3,7 @@ from flask_login import current_user
 from pokemon.models import Pokemon,Type,User
 from pokemon.models import db
 
-pokemon_bp = Blueprint('pokemon',__name__,template_folder='templates')
+pokemon_bp = Blueprint('pokemons',__name__,template_folder='templates')
 
 @pokemon_bp.route('/')
 def index():
@@ -29,7 +29,7 @@ def new_pokemon():
     pokemon = db.session.scalar(query)
     if pokemon:
       flash('Pokemon: {pokemon.name} is already exists!','warning')
-      return redirect(url_for('pokemon.new_pokemon'))
+      return redirect(url_for('pokemons.new_pokemon'))
     else:
       p_types = []
       for id in pokemon_types:
@@ -46,4 +46,4 @@ def new_pokemon():
       db.session.add(pokemon)
       db.session.commit()
       flash('Add new pokemon successful','success')
-  return render_template('pokemon/new_pokemon.html',title='New Pokemon Page',types=types)
+  return render_template('pokemons/new_pokemon.html',title='New Pokemon Page',types=types)
